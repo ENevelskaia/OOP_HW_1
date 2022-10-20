@@ -22,7 +22,6 @@ class Student:
              all_grades += grade
         if len(all_grades) == 0:
             a_gr = 0
-            # print('Пока нет оценок')
         else:
             a_gr = round(float(sum(all_grades) / len(all_grades)), 2)
         return a_gr
@@ -155,12 +154,6 @@ rewierer_2.rate_hw(student_1, 'Git', 10)
 rewierer_2.rate_hw(student_2, 'Python', 10)
 rewierer_2.rate_hw(student_2, 'Git', 9)
 
-
-# print(student_1.grades)
-# print(student_2.grades)
-#print(lecturer_1.grades)
-#print(lecturer_2.grades)
-
 student_list = []
 student_list.append(student_1)
 student_list.append(student_2)
@@ -169,26 +162,19 @@ lecturer_list = []
 lecturer_list.append(lecturer_1)
 lecturer_list.append(lecturer_2)
 
-
+print(rewierer_1)
+print()
+print(lecturer_1)
+print()
+print(student_1)
+print()
+print(student_1.__lt__(student_2))
+print(lecturer_1.__gt__(lecturer_2))
+print()
 print(f"Средняя оценка за ДЗ по Git = {students_avg_grade_course(student_list, 'Git')}")
 print(f"Средняя оценка за ДЗ по Python = {students_avg_grade_course(student_list, 'Python')}")
 print(f"Средняя оценка за лекции по Git = {lecturer_avg_grade_course(lecturer_list, 'Git')}")
 print(f"Средняя оценка за лекции по Python = {lecturer_avg_grade_course(lecturer_list, 'Python')}")
-
-print(f"Оценки за ДЗ по Git {student_2.grades['Git']+student_1.grades['Git']}")
-print(f"Оценки за ДЗ по Python {student_2.grades['Python']+student_1.grades['Python']}")
-print(f"Оценки за лекции по Git {lecturer_1.grades['Git']+lecturer_2.grades['Git']}")
-print(f"Оценки за лекции по Python {lecturer_1.grades['Python']+lecturer_2.grades['Python']}")
-
-
-
-
-# print(rewierer_1)
-# print(student_1)
-# print(student_1.__lt__(student_2))
-# print(lecturer_1)
-# print(lecturer_2)
-# print(lecturer_1.__gt__(lecturer_2))
 
 
 
