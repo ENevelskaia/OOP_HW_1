@@ -82,7 +82,6 @@ class Rewierer(Mentor):
         else:
             return 'Ошибка'
 
-
     def __str__(self):
         res = f'Имя: {self.name}\nФамилия: {self.surname}'
         return res
@@ -92,6 +91,10 @@ def students_avg_grade_course(list, course):
     for student in list:
         if isinstance(student, Student) and course in student.grades.keys():
             all_grades += student.grades[course]
+        elif isinstance(student, Student) and course not in student.grades.keys():
+            continue
+        else:
+            return "Ошибка"
     if len(all_grades) == 0:
         avg_grade = 0
     else:
@@ -103,6 +106,10 @@ def lecturer_avg_grade_course(list, course):
     for lecturer in list:
         if isinstance(lecturer, Lecturer) and course in lecturer.grades.keys():
             all_grades += lecturer.grades[course]
+        elif isinstance(lecturer, Lecturer) and course not in lecturer.grades.keys():
+            continue
+        else:
+            return "Ошибка"
     if len(all_grades) == 0:
         avg_grade = 0
     else:
@@ -143,16 +150,16 @@ rewierer_1.courses_attached += ['Python']
 rewierer_1.courses_attached += ['Git']
 rewierer_1.rate_hw(student_1, 'Python', 10)
 rewierer_1.rate_hw(student_1, 'Git', 10)
-rewierer_1.rate_hw(student_2, 'Python', 10)
-rewierer_1.rate_hw(student_2, 'Git',8)
+rewierer_1.rate_hw(student_2, 'Python', 8)
+rewierer_1.rate_hw(student_2, 'Git',9)
 
 rewierer_2 = Rewierer('Any', 'Body')
 rewierer_2.courses_attached += ['Python']
 rewierer_2.courses_attached += ['Git']
 rewierer_2.rate_hw(student_1, 'Python', 10)
 rewierer_2.rate_hw(student_1, 'Git', 10)
-rewierer_2.rate_hw(student_2, 'Python', 10)
-rewierer_2.rate_hw(student_2, 'Git', 9)
+rewierer_2.rate_hw(student_2, 'Python', 9)
+rewierer_2.rate_hw(student_2, 'Git', 10)
 
 student_list = []
 student_list.append(student_1)
@@ -164,7 +171,7 @@ lecturer_list.append(lecturer_2)
 
 print(rewierer_1)
 print()
-print(lecturer_1)
+print(lecturer_2)
 print()
 print(student_1)
 print()
